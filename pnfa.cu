@@ -273,7 +273,7 @@ void pMatch(char * bigLine, u32 * tableOfLineStarts, int numLines, int numRegexs
 
 	parallelMatch<<<512, 160>>>(bigLine, tableOfLineStarts, numLines, numRegexs, time, regexLines, regexTable, devResult);
 	//test<<<512,160>>>(bigLine, tableOfLineStarts, numLines, devResult);
-	cudaThreadSynchronize();
+	cudaDeviceSynchronize();
 
     cudaError_t error = cudaGetLastError();
     if (error != cudaSuccess) {

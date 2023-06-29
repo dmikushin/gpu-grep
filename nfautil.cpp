@@ -618,26 +618,27 @@ void visualize_nfa_help(State * start) {
     count[start->id]++;
     visited[start->id] = start->id;
     
-    char * data;
+    const char * cdata;
+    char data[10];
     if (start->c == Match) {
-        data = "Match";
+        cdata = "Match";
     }
     else if (start->c == Split) {
-        data = "Split";
+        cdata = "Split";
     }
     else if (start->c == Any) {
-        data = "Any";
+        cdata = "Any";
     }
     else {
-        data = (char *) malloc(sizeof(char)*10);
         sprintf(data, "Char %c", start->c);
+	cdata = data;
     }
 
     int outId, outId1;
     outId = (start->out == NULL) ? -1 : start->out->id;
     outId1 = (start->out1 == NULL) ? -1 : start->out1->id;
 
-    printf("{ \"id\": \"%d\", \"data\":\"%s\", \"out\":\"%d\", \"out1\":\"%d\" \n},", start->id, data, outId, outId1);
+    printf("{ \"id\": \"%d\", \"data\":\"%s\", \"out\":\"%d\", \"out1\":\"%d\" \n},", start->id, cdata, outId, outId1);
 
     visualize_nfa_help(start->out);
     visualize_nfa_help(start->out1);

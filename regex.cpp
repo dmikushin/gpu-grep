@@ -26,7 +26,7 @@ char * stringify(char * nonull, int j) {
     return proper;
 }
 
-void insertIntoComplexRe(char ** complexRe, int where, int * len, char * toInsert) {
+void insertIntoComplexRe(char ** complexRe, int where, int * len, const char * toInsert) {
     char * buf;
     int insertLen = strlen(toInsert);
     int i = where;
