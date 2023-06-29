@@ -1,5 +1,21 @@
-[Check out the website](http://bkase.github.com/CUDA-grep/)
+# CUDA grep
 
-NFA Visualizer is currently offline due to my Desktop not being packed up and stored away for the summer.
+CUDA grep is a parallel regular expression matcher for GPUs by [bkase](https://github.com/bkase) and [mburman](https://github.com/mburman).
+
+Our implementation is anywhere from 2x-10x faster than grep depending on the workload and about 68x faster than the perl regex engine.
+
+## Building
+
+```
+make
+```
+
+## Usage
+
+```
+./nfa -t -f romeojuliet.txt 'ROMEO'
+```
+
+## Acknowledgements
 
 Thanks to @dzabraev for fixing bugs with CUDA5
