@@ -8,25 +8,26 @@
 #include "nfautil.h"
 
 typedef struct {
-	int i;
-	int size;
-	char * re;
+  int i;
+  int size;
+  char *re;
 } SimpleReBuilder;
 
 /* Constructor */
-void simpleReBuilder(SimpleReBuilder ** builder, int len);
+void simpleReBuilder(SimpleReBuilder **builder, int len);
 
 /* Destructor */
-void _simpleReBuilder(SimpleReBuilder * builder);
-
+void _simpleReBuilder(SimpleReBuilder *builder);
 
 void regex_error(int i);
-char * stringify(char * nonull, int j);
-void handle_escape(SimpleReBuilder * builder, char ** complexRe, int *len, int * bi, int * ci);
-void putRange(SimpleReBuilder * builder, char start, char end, int * bi);
-void handle_range(SimpleReBuilder * builder, char * complexRe, int len, int * bi, int * ci);
-SimpleReBuilder * simplifyRe(char ** complexRe, SimpleReBuilder * builder);
+char *stringify(char *nonull, int j);
+void handle_escape(SimpleReBuilder *builder, char **complexRe, int *len,
+                   int *bi, int *ci);
+void putRange(SimpleReBuilder *builder, char start, char end, int *bi);
+void handle_range(SimpleReBuilder *builder, char *complexRe, int len, int *bi,
+                  int *ci);
+SimpleReBuilder *simplifyRe(char **complexRe, SimpleReBuilder *builder);
 void freeNFAStates(State *s);
-char * stringifyRegex(const char * oldRegex);
+char *stringifyRegex(const char *oldRegex);
 
 #endif
